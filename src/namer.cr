@@ -553,9 +553,9 @@ module Namer
     "zebra",
   ]
 
-  def self.random
-    adj = ADJECTIVES.shuffle.first
-    noun = NOUNS.select { |x| x[0] == adj[0] }.shuffle.first
+  def self.random(random : Random = Random::DEFAULT)
+    adj = ADJECTIVES.shuffle(random).first
+    noun = NOUNS.select { |x| x[0] == adj[0] }.shuffle(random).first
     "#{adj} #{noun}"
   end
 end
